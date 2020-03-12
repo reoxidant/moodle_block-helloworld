@@ -14,9 +14,10 @@ class block_helloworld extends block_base
         if ($this->content !== NULL) {
             return $this->content;
         }
+        
         $this->content = new stdClass;
         $this->content->text = $this->config->text ? $this->config->text : '<h4>'.get_string('helloworld:defaultblocktext','block_helloworld').'</h4>';
-       /* if($helloworldpages = $DB->get_record('block_helloworld', array('blockid' =>  $this->instance->id))){
+        if($helloworldpages = $DB->get_record('block_helloworld', array('blockid' =>  $this->instance->id))){
             $this->content->text.= html_writer::start_tag('ul');
             foreach ($helloworldpages as $helloworldpage){
                 $pageurl = new moodle_url(
@@ -33,7 +34,7 @@ class block_helloworld extends block_base
                 $this->content->text .= html_writer::end_tag('li');
             }
             $this->content->text .= html_writer::end_tag('ul');
-        }*/
+        }
 
         $url = new moodle_url('/blocks/helloworld/view.php', array('blockid' => $this->instance->id, 'courseid' => $COURSE->id));
         $this->content->footer = html_writer::link($url, get_string('addpage', 'block_helloworld'));
