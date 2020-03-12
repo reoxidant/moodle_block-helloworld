@@ -10,3 +10,4 @@ $string['helloworld:headerconfig'] = 'Глобальные настройки б
 $string['helloworld:descconfig'] = 'Тут находятся глобальные настройки блока - "Привет мир"';
 $string['helloworld:labelcoloredtext'] = 'Закрасить текст ?';
 $string['helloworld:desccoloredtext'] = 'Нажав здесь, закрасите текст для блока';
+$string['helloworld:typeatext'] = 'Введите текст';

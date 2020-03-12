@@ -10,3 +10,4 @@ $string['helloworld:headerconfig'] = 'Hello world global configuration';
 $string['helloworld:descconfig'] = 'Here is the global configuration of the hello world block';
 $string['helloworld:labelcoloredtext'] = 'Colored text ?';
 $string['helloworld:desccoloredtext'] = 'This will enabled a colored text for the block';
+$string['helloworld:typeatext'] = 'Type a text';
