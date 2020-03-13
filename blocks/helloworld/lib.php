@@ -1,5 +1,18 @@
 <?php
 
+function pre($arr, $bool = false, $die = false){
+    if($bool && $die){
+        echo "<pre>";
+        var_dump($arr);
+        die($die);
+        echo "</pre>";
+    }else if($bool && !$die){
+        echo "<pre>";
+        var_dump($arr);
+        echo "</pre>";
+    }
+}
+
 function block_helloworld_images(){
     return array(
         html_writer::tag('img', '', array('alt' => get_string('red', 'block_helloworld'), 'src' => "pix/picture0.gif")),

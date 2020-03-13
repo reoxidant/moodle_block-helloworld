@@ -5,47 +5,20 @@ require_once('helloworld_form.php');
 
 global $DB, $OUTPUT, $PAGE;
 // Check for all required variables.
-$courseid = required_param(
-    'courseid',
-    PARAM_INT
-);
+$courseid = required_param('courseid', PARAM_INT);
+
+$blockid = required_param('blockid', PARAM_INT);
+
+$id = optional_param('id', 0, PARAM_INT);
+
+$viewpage = optional_param('viewpage', false, PARAM_BOOL);
+
 //breadcrumb
-$blockid = optional_param(
-  'blockid',
-  PARAM_INT
-);
+$settingsnode = $PAGE->settingsnav->add(get_string('helloworldsettings', 'block_helloworld'));
 
-$viewpage = optional_param(
-  'viewpage',
-    false,
-    PARAM_BOOL
-);
+$editurl = new moodle_url('/block/hello/view.php', array('id' => $id, 'courseid' => $courseid, 'blockid' => $blockid));
 
-$id = optional_param(   'id', 0, PARAM_INT);
-
-$settingsnode = $PAGE->settinsnav->add(
-    get_string(
-        'helloworldsettings',
-        'block_helloworld'
-    )
-);
-
-$editurl = new moodle_url(
-    '/block/hello/view.php',
-    array(
-        'id' => $id,
-        'courseid' => $courseid,
-        'blockid' => $blockid
-    )
-);
-
-$editnode = $settingsnode->add(
-    get_string(
-    'editpage',
-    'block_helloworld'
-    ),
-    $editurl
-);
+$editnode = $settingsnode->add(get_string('editpage', 'block_helloworld'), $editurl);
 
 $editnode->make_active();
 
@@ -57,12 +30,7 @@ require_login($course);
 
 $PAGE->set_url('/blocks/helloworld/view.php', array('id'=> $courseid));
 $PAGE->set_pagelayout('standart');
-$PAGE->set_heading(
-    get_string(
-        'edithtml',
-        'block_helloworld'
-    )
-);
+$PAGE->set_heading(get_string('edithtml', 'block_helloworld'));
 
 $helloworld = new helloworld_form();
 
@@ -86,10 +54,10 @@ if($helloworld->is_cancelled()){
     redirect($courseurl);
 }else{
     // form didn't validate or this is the first display
-    $site = get_site();
+    //$site = get_site();
     echo $OUTPUT->header();
     if($viewpage){
-        $helloworld = $DB->get_record('block_helloworld', array('id' => $id));
+        $helloworldpage = $DB->get_record('block_helloworld', array('id' => $id));
         block_helloworld_print_page($helloworldpage);
     }else{
         $helloworld->display();

@@ -1,19 +1,6 @@
 <?php
 defined('MOODLE_INTERNAL') || die();
 
-function pre($arr, $bool = false){
-    if($bool){
-        echo "<pre>";
-        var_dump($arr);
-        die('end debug');
-        echo "</pre>";
-    }else{
-        echo "<pre>";
-        var_dump($arr);
-        echo "</pre>";
-    }
-}
-
 class block_helloworld extends block_base
 {
     public function init()
