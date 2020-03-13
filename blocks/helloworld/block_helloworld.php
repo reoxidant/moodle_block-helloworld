@@ -1,6 +1,19 @@
 <?php
 defined('MOODLE_INTERNAL') || die();
 
+function pre($arr, $bool = false){
+    if($bool){
+        echo "<pre>";
+        var_dump($arr);
+        die('end debug');
+        echo "</pre>";
+    }else{
+        echo "<pre>";
+        var_dump($arr);
+        echo "</pre>";
+    }
+}
+
 class block_helloworld extends block_base
 {
     public function init()
@@ -14,26 +27,28 @@ class block_helloworld extends block_base
         if ($this->content !== NULL) {
             return $this->content;
         }
+        
         $this->content = new stdClass;
         $this->content->text = $this->config->text ? $this->config->text : '<h4>'.get_string('helloworld:defaultblocktext','block_helloworld').'</h4>';
-       /* if($helloworldpages = $DB->get_record('block_helloworld', array('blockid' =>  $this->instance->id))){
-            $this->content->text.= html_writer::start_tag('ul');
+
+        if($helloworldpages = $DB->get_record('block_helloworld', array('blockid' =>  37))){
+            $this->content->text .= html_writer::start_tag('ul');
             foreach ($helloworldpages as $helloworldpage){
                 $pageurl = new moodle_url(
                     '/blocks/helloworld/view.php',
                     array(
-                         'blockid' => $this->instance->id,
+                         'blockid' => 37,
                          'courseid' => $COURSE->id,
-                         'id' => $helloworldpage->id,
+                         'id' => $helloworldpages->id,
                          'viewpage' => '1'
                     )
                 );
                 $this->content->text .= html_writer::start_tag('li');
-                $this->content->text .= html_writer::link($pageurl, $helloworldpage->title);
+                $this->content->text .= html_writer::link($pageurl, $helloworldpages->title);
                 $this->content->text .= html_writer::end_tag('li');
             }
             $this->content->text .= html_writer::end_tag('ul');
-        }*/
+        }
 
         $url = new moodle_url('/blocks/helloworld/view.php', array('blockid' => $this->instance->id, 'courseid' => $COURSE->id));
         $this->content->footer = html_writer::link($url, get_string('addpage', 'block_helloworld'));
