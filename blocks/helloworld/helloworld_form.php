@@ -9,6 +9,7 @@ class helloworld_form extends moodleform
     {
         $mform =& $this->_form;
 
+        $mform->addElement('hidden', 'id', 0);
         $mform->addElement('header', 'displayinfo', get_string('textfields', 'block_hellowroild'));
 
         $mform->setType('title', PARAM_RAW);
