@@ -16,4 +16,4 @@ $string['helloworld:labelcoloredtext'] = 'Colored text ?';
 $string['helloworld:desccoloredtext'] = 'This will enabled a colored text for the block';
 $string['helloworld:typeatext'] = 'Type a text';
 
-$string['helloworldsettings']= 'hello world settings';
+$string['helloworldsettings'] = 'hello world settings';

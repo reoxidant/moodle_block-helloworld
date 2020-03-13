@@ -15,4 +15,4 @@ $string['helloworld:labelcoloredtext'] = 'Закрасить текст ?';
 $string['helloworld:desccoloredtext'] = 'Нажав здесь, закрасите текст для блока';
 $string['helloworld:typeatext'] = 'Введите текст';
 
-$string['helloworldsettings']= 'Настройки блока - Привет мир';
+$string['helloworldsettings'] = 'Настройки блока - Привет мир';
