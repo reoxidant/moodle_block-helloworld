@@ -21,12 +21,15 @@ class helloworld_form extends moodleform
         $mform->addElement('filepicker', 'filename', get_string('file'), null, array('accepted_types' => '*'));
 
         $mform->addElement('header', 'optional', get_string('optional', 'form'), null, false);
-        $mform->addElement('date_time_selector', 'date', get_string('date' ), array('optional' => true));
+        $mform->addElement('date_time_selector', 'date', get_string('date'), array('optional' => true));
         $mform->setAdvanced('optional');
 
         $mform->addElement('hidden','id','0');
+
         $mform->addElement('hidden', 'blockid');
+
         $mform->addElement('hidden', 'courseid');
+
         $this->add_action_buttons();
     }
 }
